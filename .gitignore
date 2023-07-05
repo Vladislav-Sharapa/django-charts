@@ -1,0 +1,18 @@
+# Python
+venv
+migrations
+pycache
+*.pot
+*.pyc
+__pycache__
+
+# Logs
+logs
+*.log
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+
+
