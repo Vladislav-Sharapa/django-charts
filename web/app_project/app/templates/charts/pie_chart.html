@@ -1,0 +1,20 @@
+<script>
+    var chrt = document.getElementById("pie").getContext("2d");
+    var pie = new Chart(chrt, {
+       type: 'pie',
+       data: {
+          labels: ["HTML", "CSS", "JAVASCRIPT", "CHART.JS", "JQUERY", "BOOTSTRP"],
+          datasets: [{
+             label: "online tutorial subjects",
+             data: [20, 40, 13, 35, 20, 38],
+             backgroundColor: ['yellow', 'aqua', 'pink', 'lightgreen', 'gold', 'lightblue'],
+             borderWidth: 1,
+             borderRadius: 2,
+             hoverOffset: 5
+          }],
+       },
+       options: {
+          responsive: false,
+       },
+    });
+</script>
