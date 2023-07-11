@@ -1,0 +1,60 @@
+{% extends 'app/layout.html' %}
+
+{% block title %}Main page{% endblock %}
+
+{% block content%}
+    <div class="container py-3 " style="max-width: 95%;">
+        <form id="form" method="get">
+            <div class="row ">
+                <div class="col-sm-2">
+                    <div class="input-group date" id="datepicker">
+                        <input type="text" class="form-control" id="input-data" placeholder="Select a date:" style="max-width: 200px;">
+                        <span class="input-group-append d-block d-flex align-items-center justify-content-center">
+                            <span class="input-group-text bg-light" style="height: 40px;">
+                                <i class="fa fa-calendar"></i>
+                            </span>
+                        </span>
+                    </div> 
+                </div>
+                <div class="col-8">
+                    <button type="submit" class="btn text-white" style="background-color: #7895CB; height: 40px;">Load</button>
+                    <a href="{% url 'add_page' %}" class="btn btn-success text-white" style="height: 40px;">Add</a>
+                </div>
+            </div>
+        </form>
+    </div>
+    <hr class="m-0">
+   
+    {% include 'app/ajax.html' %}
+
+    <div class="container py-3" style="max-width: 95%;">
+        <div class="row mb-5">
+            <div class="col-sm-6 border border-black">
+                <canvas id="bar"></canvas>
+                {% include 'charts/bar_chart.html' %}
+            </div>
+            <div class="col-sm-6 d-flex align-items-center justify-content-center border border-black">
+                <canvas id="pie"></canvas>
+                {% include 'charts/pie_chart.html' %}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 d-flex align-items-center justify-content-center border border-black">
+                <canvas id="line" ></canvas>
+                {% include 'charts/line_chart.html' %}
+            </div>
+            <div class="col-sm-6 d-flex align-items-center justify-content-center border border-black">
+                <canvas id="area"></canvas>
+                {% include 'charts/area_chart.html' %}
+            </div>
+        </div>
+    </div>
+    <hr>
+
+    <script type="text/javascript">
+    $(function() {
+        $('#datepicker').datepicker();
+    });
+    </script>
+
+{% endblock %}
