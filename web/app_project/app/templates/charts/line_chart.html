@@ -1,20 +1,14 @@
-<script type="">
+<script type="text/javascript">
     var chrt = document.getElementById("line").getContext("2d");
     var line = new Chart(chrt, {
        type: 'line',
-       data: {
-          labels: [{% for item in data %} '{{item.type_doc}}', {% endfor %}],
-          datasets: [{
-             label: "DOCUMENTS PROCESSED",
-             data: [{% for item in data %} '{{item.count}}', {% endfor %}],
-             backgroundColor: ['yellow', 'aqua', 'pink', 'lightgreen'],
-             borderColor: ['black'],
-             borderWidth: 0.5,
-             pointRadius: 5,
-          }],
-       },
        options: {
           responsive: true,
+          scales: {
+            y: {
+              beginAtZero: true
+            }
+          }
        },
     });
 </script>

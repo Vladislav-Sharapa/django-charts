@@ -1,15 +1,7 @@
-<script>
+<script type="text/javascript">
   var chrt = document.getElementById("area").getContext("2d");
   var area = new Chart(chrt, {
      type: 'polarArea',
-     data: {
-        labels: ["HTML", "CSS", "JAVASCRIPT", "CHART.JS", "JQUERY", "BOOTSTRP"],
-        datasets: [{
-           label: "online tutorial subjects",
-           data: [20, 40, 15, 35, 25, 38],
-           backgroundColor: ['yellow', 'aqua', 'pink', 'lightgreen', 'gold', 'lightblue'],
-        }],
-     },
      options: {
         responsive: false,
      },
