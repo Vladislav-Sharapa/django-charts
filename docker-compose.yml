@@ -10,4 +10,13 @@ services:
       - ./database/queries.sql:/docker-entrypoint-initdb.d/queries.sql
     ports:
       - "5432:5432"
+
+  web:
+    restart: always
+    build: './web/'
+    depends_on:
+      - postgres
+    ports:
+      - "8000:8000"
+
   
