@@ -1,4 +1,12 @@
+from .service import get_week_number
+from .models import Messagelog
+from .forms import MessageLogForm
 from django.shortcuts import render, redirect
+from django.http import JsonResponse
+from django.db.models import Count, Value
+from django.db.models.functions import Concat
+from django.http import HttpResponse
+
 
 def index(request):
     '''Render main page'''
@@ -20,6 +28,18 @@ def add_data(request):
 def add_page(request):
     form = MessageLogForm(use_required_attribute=False)
     return render(request, 'app/add_page.html', {'form': form})
+
+
+def get_week(request):
+    '''Get number of week'''
+    response: dict = {'week': None}
+    if request.GET.get('input_data'):
+        selected_date = request.GET.get('input_data')
+        week: int = get_week_number(selected_date)
+        
+        response['week'] = week
+    
+    return JsonResponse(response)
 
 
 def get_bar_data(request, week) -> JsonResponse:
